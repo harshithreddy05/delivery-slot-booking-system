@@ -50,12 +50,29 @@ Install dependencies from the project root:
 npm run install:all
 ```
 
+If `npm` is not installed but `pnpm` is available, install each app separately:
+
+```bash
+pnpm install
+pnpm --dir server install
+pnpm --dir client install
+pnpm --dir client approve-builds --all
+pnpm --dir client rebuild esbuild
+```
+
 ## Run
 
 Start both frontend and backend in development mode:
 
 ```bash
 npm run dev
+```
+
+With `pnpm`, run the two services in separate terminals:
+
+```bash
+pnpm --dir server run dev
+pnpm --dir client run dev
 ```
 
 Default URLs:
