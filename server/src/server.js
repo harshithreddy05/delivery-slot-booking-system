@@ -10,6 +10,17 @@ app.use(cors({ origin: process.env.CLIENT_ORIGIN || "http://localhost:5173" }));
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.get("/", (_req, res) => {
+  res.json({
+    message: "Delivery Slot Booking API is running.",
+    endpoints: {
+      health: "/health",
+      slots: "/slots",
+      bookSlot: "/book/:slotId"
+    }
+  });
+});
+
 app.get("/health", (_req, res) => {
   res.json({ status: "ok", service: "delivery-slot-booking-api" });
 });
